@@ -652,11 +652,6 @@ int sb600_probe_spi(struct pci_dev *dev)
 	}
 	msg_pdbg("\n");
 
-	if (((tmp >> 22) & 0x1) == 0 || ((tmp >> 23) & 0x1) == 0) {
-		msg_perr("ERROR: State of SpiAccessMacRomEn or SpiHostAccessRomEn prohibits full access.\n");
-		return ERROR_NONFATAL;
-	}
-
 	if (amd_gen >= CHIPSET_SB89XX) {
 		tmp = mmio_readb(sb600_spibar + 0x1D);
 		msg_pdbg("Using SPI_CS%d\n", tmp & 0x3);
@@ -713,6 +708,12 @@ int sb600_probe_spi(struct pci_dev *dev)
 		register_spi_programmer(&spi_programmer_sb600);
 	else
 		register_spi_programmer(&spi_programmer_yangtze);
+
+	if (((tmp >> 22) & 0x1) == 0 || ((tmp >> 23) & 0x1) == 0) {
+		msg_perr("ERROR: State of SpiAccessMacRomEn or SpiHostAccessRomEn prohibits full access.\n");
+		return ERROR_NONFATAL;
+	}
+
 	return 0;
 }
 
