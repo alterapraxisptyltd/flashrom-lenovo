@@ -2420,6 +2420,7 @@ const struct board_match board_matches[] = {
 	{0x8086, 0x7190,      0,      0,  0x8086, 0x7110,      0,      0, "^SE440BX-2$", NULL, NULL,          P3, "Intel",       "SE440BX-2",             0,   NT, intel_piix4_gpo27_lower},
 	{0x1022, 0x7468,      0,      0,  0x1022, 0x7460,      0,      0, NULL,         "iwill", "dk8_htx",   P3, "IWILL",       "DK8-HTX",               0,   OK, w83627hf_gpio24_raise_2e},
 	{0x8086, 0x27A0, 0x8086, 0x27a0,  0x8086, 0x27b8, 0x8086, 0x27b8, NULL,        "kontron", "986lcd-m", P3, "Kontron",     "986LCD-M",              0,   OK, board_kontron_986lcd_m},
+	{0x1022, 0x780b, 0x17aa, 0x397c,  0x1022, 0x780e, 0x17aa, 0x397c, "^Lenovo G505s", NULL, NULL,        P2, "Lenovo",      "G505s",                 0,   OK, p2_whitelist_laptop},
 	{0x8086, 0x27a0, 0x17aa, 0x2015,  0x8086, 0x27b9, 0x17aa, 0x2009, "^ThinkPad T60", NULL, NULL,        P2, "Lenovo",      "T60",                   0,   OK, p2_whitelist_laptop},
 	{0x8086, 0x27a0, 0x17aa, 0x2017,  0x8086, 0x27b9, 0x17aa, 0x2009, "^ThinkPad T60", NULL, NULL,        P2, "Lenovo",      "T60(s)",                0,   OK, p2_whitelist_laptop},
 	{0x8086, 0x27a0, 0x17aa, 0x2017,  0x8086, 0x27b9, 0x17aa, 0x2009, "^ThinkPad X60", NULL, NULL,        P2, "Lenovo",      "X60(s)",                0,   OK, p2_whitelist_laptop},
